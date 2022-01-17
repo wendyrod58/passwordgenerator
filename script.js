@@ -34,13 +34,21 @@ function generatePassword() {
   console.log("Include Lowercase", lowerCharacterType);
 
   var upperCharacterType = window.confirm("Would you like to include Uppercase Characters ?");
-  console.log(upperCharacterType);
+  console.log("Include Uppercase", upperCharacterType);
 
   var specialCharacterType = window.confirm("Would you like to include Special Characters ?");
-  console.log(specialCharacterType);
+  console.log("Include Special Character", specialCharacterType);
 
-  //incase if all are flase please prompt the user again to choose one type of Characters 
-  // if or while loop 
+
+
+  //in case if all are false prompt the user again to choose one type of Character 
+
+  if (numberCharacterType + lowerCharacterType + upperCharacterType + specialCharacterType == false) {
+    window.alert ("Please click on Generate password again and enter at least one type of character ")
+  }
+
+
+
 
   // //Build your list of all allowed Characters based on the boolean values 
   if (numberCharacterType == true) {
@@ -67,20 +75,14 @@ function generatePassword() {
 
     var randomIndex = Math.floor(Math.random() * allCharactersList.length);
     var randomLetter = allCharactersList.charAt(randomIndex); 
-
     console.log('The character at index' +  randomIndex + ' is ' +  randomLetter ); 
 
-
-    // 10 is the lenght of the string.. check how to do this in java
-    // randomFinalPass also add like allCharacters above . Inside the for loop
     randomFinalPass =  randomFinalPass + randomLetter; 
-
   }
 
-  //returns the combined  random letters 
-  return randomFinalPass;
+//returns the combined  random letters 
+return randomFinalPass;
 }
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
